@@ -1,7 +1,6 @@
 package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "empleados")
