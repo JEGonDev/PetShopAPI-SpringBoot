@@ -10,7 +10,7 @@ public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_owner")
-    private Integer ID;
+    private Integer ownerID;
 
     @Column (name = "nombre_propietario")
     private String nameOwner;
@@ -28,11 +28,11 @@ public class Owner {
     private String address;
 
     public Integer getID() {
-        return ID;
+        return ownerID;
     }
 
     public void setID(Integer ID) {
-        this.ID = ID;
+        this.ownerID = ID;
     }
 
     public String getNameOwner() {
@@ -74,14 +74,4 @@ public class Owner {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    /*
-     * Entidades a crear
-     * citas
-     * productos
-     * proveedores
-     * factura
-     * historia medica
-     * veterinario
-     * */
 }

@@ -10,7 +10,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empleado")
-    private Integer ID;
+    private Integer employeeID;
 
     @Column(name = "nombre_empleado")
     private String fistName;
@@ -21,12 +21,12 @@ public class Employee {
     @Column(name = "email_empleado")
     private String email;
 
-    public Integer getID() {
-        return ID;
+    public Integer getEmployeeID() {
+        return employeeID;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setEmployeeID(Integer ID) {
+        this.employeeID = ID;
     }
 
     public String getFistName() {

@@ -10,7 +10,7 @@ public class Pets {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pet")
-    private Integer ID;
+    private Integer petID;
 
     @Column(name = "nombres")
     private String name;
@@ -25,11 +25,11 @@ public class Pets {
     private String gender;
 
     public Integer getID() {
-        return ID;
+        return petID;
     }
 
     public void setID(Integer ID) {
-        this.ID = ID;
+        this.petID = ID;
     }
 
     public String getName() {
