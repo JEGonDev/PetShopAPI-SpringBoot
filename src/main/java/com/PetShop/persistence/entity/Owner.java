@@ -13,7 +13,7 @@ public class Owner {
     private Integer ownerID;
 
     @Column (name = "nombre_propietario")
-    private String nameOwner;
+    private String ownerFistName;
 
     @Column (name = "apellido_propietario")
     private String ownerLastName;
@@ -22,10 +22,10 @@ public class Owner {
     private String ownerEmail;
 
     @Column (name = "telefono")
-    private String phoneNumber;
+    private String ownerPhoneNumber;
 
     @Column (name = "direccion")
-    private String address;
+    private String ownerAddress;
 
     public Integer getID() {
         return ownerID;
@@ -35,12 +35,12 @@ public class Owner {
         this.ownerID = ID;
     }
 
-    public String getNameOwner() {
-        return nameOwner;
+    public String getOwnerFistName() {
+        return ownerFistName;
     }
 
-    public void setNameOwner(String nameOwner) {
-        this.nameOwner = nameOwner;
+    public void setOwnerFistName(String ownerFistName) {
+        this.ownerFistName = ownerFistName;
     }
 
     public String getOwnerLastName() {
@@ -60,18 +60,18 @@ public class Owner {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return ownerPhoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.ownerPhoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getOwnerAddress() {
+        return ownerAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setOwnerAddress(String ownerAddress) {
+        this.ownerAddress = ownerAddress;
     }
 }

@@ -12,13 +12,24 @@ public class Employee {
     private Integer employeeID;
 
     @Column(name = "nombre_empleado")
-    private String fistName;
+    private String employeeFirstName;
 
     @Column(name = "apellido_empleado")
-    private String lastName;
+    private String employeeLastName;
+
+    @Column(name = "telefono_empleado")
+    private String employeePhoneNumber;
 
     @Column(name = "email_empleado")
-    private String email;
+    private String employeeEmail;
+
+    public String getEmployeePhoneNumber() {
+        return employeePhoneNumber;
+    }
+
+    public void setEmployeePhoneNumber(String employeePhoneNumber) {
+        this.employeePhoneNumber = employeePhoneNumber;
+    }
 
     public Integer getEmployeeID() {
         return employeeID;
@@ -28,27 +39,27 @@ public class Employee {
         this.employeeID = ID;
     }
 
-    public String getFistName() {
-        return fistName;
+    public String getEmployeeFirstName() {
+        return employeeFirstName;
     }
 
-    public void setFistName(String fistName) {
-        this.fistName = fistName;
+    public void setEmployeeFirstName(String employeeFirstName) {
+        this.employeeFirstName = employeeFirstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getEmployeeLastName() {
+        return employeeLastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setEmployeeLastName(String employeeLastName) {
+        this.employeeLastName = employeeLastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmployeeEmail() {
+        return employeeEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmployeeEmail(String employeeEmail) {
+        this.employeeEmail = employeeEmail;
     }
 }

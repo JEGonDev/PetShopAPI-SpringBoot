@@ -5,15 +5,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "mascotas")  // Nombre de la tabla en la base de datos
-public class Pets {
+public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pet")
     private Integer petID;
 
+    //falta atributo propietario id
+
     @Column(name = "nombres")
-    private String name;
+    private String namePet;
 
     @Column(name = "especies")
     private String species;
@@ -32,12 +34,12 @@ public class Pets {
         this.petID = ID;
     }
 
-    public String getName() {
-        return name;
+    public String getNamePet() {
+        return namePet;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNamePet(String namePet) {
+        this.namePet = namePet;
     }
 
     public String getSpecies() {
