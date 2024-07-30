@@ -3,13 +3,15 @@ package com.PetShop.persistence.entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 
+import java.util.List;
+
 @Entity
 @Table(name = "propietorios")
 public class Owner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_owner")
+    @Column (name = "id_propietario")
     private Integer ownerID;
 
     @Column (name = "nombre_propietario")
@@ -27,12 +29,21 @@ public class Owner {
     @Column (name = "direccion")
     private String ownerAddress;
 
-    public Integer getID() {
+    //relationships
+    @OneToMany(mappedBy = "owner")
+    private List<Pet> pets;
+
+    @OneToMany(mappedBy = "owner")
+    private List<MedicalAppointment> medicalAppointments;
+
+    //getters and setters
+
+    public Integer getOwnerID() {
         return ownerID;
     }
 
-    public void setID(Integer ID) {
-        this.ownerID = ID;
+    public void setOwnerID(Integer ownerID) {
+        this.ownerID = ownerID;
     }
 
     public String getOwnerFistName() {
@@ -59,12 +70,12 @@ public class Owner {
         this.ownerEmail = ownerEmail;
     }
 
-    public String getPhoneNumber() {
+    public String getOwnerPhoneNumber() {
         return ownerPhoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.ownerPhoneNumber = phoneNumber;
+    public void setOwnerPhoneNumber(String ownerPhoneNumber) {
+        this.ownerPhoneNumber = ownerPhoneNumber;
     }
 
     public String getOwnerAddress() {
@@ -73,5 +84,21 @@ public class Owner {
 
     public void setOwnerAddress(String ownerAddress) {
         this.ownerAddress = ownerAddress;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public List<MedicalAppointment> getMedicalAppointments() {
+        return medicalAppointments;
+    }
+
+    public void setMedicalAppointments(List<MedicalAppointment> medicalAppointments) {
+        this.medicalAppointments = medicalAppointments;
     }
 }

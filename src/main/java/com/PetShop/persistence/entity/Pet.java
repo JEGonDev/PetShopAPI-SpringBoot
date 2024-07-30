@@ -1,7 +1,7 @@
 package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "mascotas")  // Nombre de la tabla en la base de datos
@@ -11,8 +11,6 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pet")
     private Integer petID;
-
-    //falta atributo propietario id
 
     @Column(name = "nombres")
     private String namePet;
@@ -26,12 +24,25 @@ public class Pet {
     @Column(name = "genero")
     private String gender;
 
-    public Integer getID() {
+    // relationships
+    @ManyToOne
+    @JoinColumn(name = "id_propietario")
+    private Owner owner;
+
+    @OneToMany (mappedBy = "pet")
+    private List<MedicalAppointment> medicalAppointments;
+
+    @OneToMany (mappedBy = "pet")
+    private List<MedicalHistory> medicalHistory;
+
+    // getters and setters
+
+    public Integer getPetID() {
         return petID;
     }
 
-    public void setID(Integer ID) {
-        this.petID = ID;
+    public void setPetID(Integer petID) {
+        this.petID = petID;
     }
 
     public String getNamePet() {
@@ -64,5 +75,29 @@ public class Pet {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public List<MedicalAppointment> getMedicalAppointments() {
+        return medicalAppointments;
+    }
+
+    public void setMedicalAppointments(List<MedicalAppointment> medicalAppointments) {
+        this.medicalAppointments = medicalAppointments;
+    }
+
+    public List<MedicalHistory> getMedicalHistory() {
+        return medicalHistory;
+    }
+
+    public void setMedicalHistory(List<MedicalHistory> medicalHistory) {
+        this.medicalHistory = medicalHistory;
     }
 }

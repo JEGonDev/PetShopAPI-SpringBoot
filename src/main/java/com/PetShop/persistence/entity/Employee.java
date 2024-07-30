@@ -2,6 +2,8 @@ package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "empleados")
 public class Employee {
@@ -23,20 +25,16 @@ public class Employee {
     @Column(name = "email_empleado")
     private String employeeEmail;
 
-    public String getEmployeePhoneNumber() {
-        return employeePhoneNumber;
-    }
-
-    public void setEmployeePhoneNumber(String employeePhoneNumber) {
-        this.employeePhoneNumber = employeePhoneNumber;
-    }
+    //Relationships
+    @OneToMany(mappedBy = "employee")
+    private List<Invoice> invoices;
 
     public Integer getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(Integer ID) {
-        this.employeeID = ID;
+    public void setEmployeeID(Integer employeeID) {
+        this.employeeID = employeeID;
     }
 
     public String getEmployeeFirstName() {
@@ -55,11 +53,27 @@ public class Employee {
         this.employeeLastName = employeeLastName;
     }
 
+    public String getEmployeePhoneNumber() {
+        return employeePhoneNumber;
+    }
+
+    public void setEmployeePhoneNumber(String employeePhoneNumber) {
+        this.employeePhoneNumber = employeePhoneNumber;
+    }
+
     public String getEmployeeEmail() {
         return employeeEmail;
     }
 
     public void setEmployeeEmail(String employeeEmail) {
         this.employeeEmail = employeeEmail;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }
