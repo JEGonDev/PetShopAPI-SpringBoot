@@ -15,7 +15,7 @@ public class Owner {
     private Integer ownerID;
 
     @Column (name = "nombre_propietario")
-    private String ownerFistName;
+    private String ownerFirstName;
 
     @Column (name = "apellido_propietario")
     private String ownerLastName;
@@ -47,11 +47,11 @@ public class Owner {
     }
 
     public String getOwnerFistName() {
-        return ownerFistName;
+        return ownerFirstName;
     }
 
     public void setOwnerFistName(String ownerFistName) {
-        this.ownerFistName = ownerFistName;
+        this.ownerFirstName = ownerFistName;
     }
 
     public String getOwnerLastName() {

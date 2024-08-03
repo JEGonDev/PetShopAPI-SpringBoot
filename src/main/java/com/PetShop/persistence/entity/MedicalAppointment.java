@@ -13,9 +13,6 @@ public class MedicalAppointment {
     @Column(name = "id_cita")
     private Integer appointmentID;
 
-    @Column(name = "numero_cita")
-    private int appointmentNumber;
-
     @Column(name = "fecha_cita")
     private String appointmentDate;
 
@@ -27,14 +24,6 @@ public class MedicalAppointment {
 
     // Relationships
     @ManyToOne
-    @JoinColumn(name = "id_propietario")
-    private Owner owner;
-
-    @ManyToOne
-    @JoinColumn(name = "id_mascota")
-    private Pet pet;
-
-    @ManyToOne
     @JoinColumn(name = "id_veterinario")
     private Veterinarian veterinarian;
 
@@ -44,6 +33,9 @@ public class MedicalAppointment {
     @OneToMany(mappedBy = "appointment")
     private List<MedicalHistory> medicalHistory;
 
+    @OneToMany(mappedBy = "appointment")
+    private List<AppointmentDetails> appointmentDetails;
+
     // Getters and setters
 
     public Integer getAppointmentID() {
@@ -52,14 +44,6 @@ public class MedicalAppointment {
 
     public void setAppointmentID(Integer appointmentID) {
         this.appointmentID = appointmentID;
-    }
-
-    public int getAppointmentNumber() {
-        return appointmentNumber;
-    }
-
-    public void setAppointmentNumber(int appointmentNumber) {
-        this.appointmentNumber = appointmentNumber;
     }
 
     public String getAppointmentDate() {
@@ -86,22 +70,6 @@ public class MedicalAppointment {
         this.appointmentCost = appointmentCost;
     }
 
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
     public Veterinarian getVeterinarian() {
         return veterinarian;
     }
@@ -124,5 +92,13 @@ public class MedicalAppointment {
 
     public void setMedicalHistory(List<MedicalHistory> medicalHistory) {
         this.medicalHistory = medicalHistory;
+    }
+
+    public List<AppointmentDetails> getAppointmentDetails() {
+        return appointmentDetails;
+    }
+
+    public void setAppointmentDetails(List<AppointmentDetails> appointmentDetails) {
+        this.appointmentDetails = appointmentDetails;
     }
 }

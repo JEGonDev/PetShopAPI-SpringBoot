@@ -1,6 +1,8 @@
 package com.PetShop.persistence.entity;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Invoices")
 public class Invoice {
@@ -27,16 +29,15 @@ public class Invoice {
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name = "id_producto")
-    private Product product;
-
-    @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "id_cita")
     private MedicalAppointment medicalAppointment;
+
+    @OneToMany (mappedBy = "invoice")
+    private List<InvoiceDetail> invoiceDetail;
 
     //Getters and Setters
 
@@ -88,14 +89,6 @@ public class Invoice {
         this.totalReturn = totalReturn;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public Employee getEmployee() {
         return employee;
     }
@@ -110,5 +103,13 @@ public class Invoice {
 
     public void setMedicalAppointment(MedicalAppointment medicalAppointment) {
         this.medicalAppointment = medicalAppointment;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetail() {
+        return invoiceDetail;
+    }
+
+    public void setInvoiceDetail(List<InvoiceDetail> invoiceDetail) {
+        this.invoiceDetail = invoiceDetail;
     }
 }

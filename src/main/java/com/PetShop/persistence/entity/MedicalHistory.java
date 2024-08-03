@@ -22,10 +22,6 @@ public class MedicalHistory {
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name = "id_veterinario")
-    private Veterinarian veterinarian;
-
-    @ManyToOne
     @JoinColumn(name = "id_pet")
     private Pet pet;
 
@@ -65,14 +61,6 @@ public class MedicalHistory {
 
     public void setPreviousMedications(String previousMedications) {
         this.previousMedications = previousMedications;
-    }
-
-    public Veterinarian getVeterinarian() {
-        return veterinarian;
-    }
-
-    public void setVeterinarian(Veterinarian veterinarian) {
-        this.veterinarian = veterinarian;
     }
 
     public Pet getPet() {

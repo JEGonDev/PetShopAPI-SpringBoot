@@ -19,7 +19,7 @@ public class Veterinarian {
     private String veterinarianLastName;
 
     @Column(name="titulo")
-    private String title;
+    private String degree;
 
     @Column(name="telefono_veterinario")
     private String veterinarianPhone;
@@ -63,12 +63,12 @@ public class Veterinarian {
         this.veterinarianLastName = veterinarianLastName;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDegree() {
+        return degree;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDegree(String degree) {
+        this.degree = degree;
     }
 
     public String getVeterinarianPhone() {

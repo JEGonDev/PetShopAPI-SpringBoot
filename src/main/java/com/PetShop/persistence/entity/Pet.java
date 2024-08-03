@@ -30,10 +30,10 @@ public class Pet {
     private Owner owner;
 
     @OneToMany (mappedBy = "pet")
-    private List<MedicalAppointment> medicalAppointments;
+    private List<MedicalHistory> medicalHistory;
 
     @OneToMany (mappedBy = "pet")
-    private List<MedicalHistory> medicalHistory;
+    private List<AppointmentDetails> appointmentDetails;
 
     // getters and setters
 
@@ -85,19 +85,19 @@ public class Pet {
         this.owner = owner;
     }
 
-    public List<MedicalAppointment> getMedicalAppointments() {
-        return medicalAppointments;
-    }
-
-    public void setMedicalAppointments(List<MedicalAppointment> medicalAppointments) {
-        this.medicalAppointments = medicalAppointments;
-    }
-
     public List<MedicalHistory> getMedicalHistory() {
         return medicalHistory;
     }
 
     public void setMedicalHistory(List<MedicalHistory> medicalHistory) {
         this.medicalHistory = medicalHistory;
+    }
+
+    public List<AppointmentDetails> getAppointmentDetails() {
+        return appointmentDetails;
+    }
+
+    public void setAppointmentDetails(List<AppointmentDetails> appointmentDetails) {
+        this.appointmentDetails = appointmentDetails;
     }
 }
