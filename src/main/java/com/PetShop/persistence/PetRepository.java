@@ -1,7 +1,6 @@
 package com.PetShop.persistence;
 
 import com.PetShop.persistence.crud.PetCrudRepository;
-import com.PetShop.persistence.entity.Owner;
 import com.PetShop.persistence.entity.Pet;
 
 import java.util.List;
@@ -25,4 +24,16 @@ public class PetRepository {
     public void delete(int id) {
         petCrudRepository.deleteById(id);
     }
+
+    public boolean existsPet(int id) {
+        return petCrudRepository.existsById(id);
+    }
+
+    public long countAll(){
+        return petCrudRepository.count();
+    }
+
+    /*public List<Pet> getBySpecies(String species) {
+        return petCrudRepository.findBySpeciesOrderByIdAsc(species);
+    }*/
 }

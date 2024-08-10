@@ -24,4 +24,12 @@ public class MedicalAppointmentRepository {
     public void delete(int id){
         medicalAppointmentCrudRepository.deleteById(id);
     }
+
+    public boolean existsMedicalAppointment(int id){
+        return medicalAppointmentCrudRepository.existsById(id);
+    }
+
+    public long countAll(){
+        return medicalAppointmentCrudRepository.count();
+    }
 }

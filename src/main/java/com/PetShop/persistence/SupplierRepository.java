@@ -1,7 +1,6 @@
 package com.PetShop.persistence;
 
 import com.PetShop.persistence.crud.SupplierCrudRepository;
-import com.PetShop.persistence.entity.Pet;
 import com.PetShop.persistence.entity.Supplier;
 
 import java.util.List;
@@ -24,5 +23,13 @@ public class SupplierRepository {
 
     public void delete(int id) {
         supplierCrudRepository.deleteById(id);
+    }
+
+    public boolean existsSupplier(int id) {
+        return supplierCrudRepository.existsById(id);
+    }
+
+    public long countAll() {
+        return supplierCrudRepository.count();
     }
 }

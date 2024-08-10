@@ -24,4 +24,12 @@ public class InvoiceRepository {
     public void delete(int id){
         invoiceCrudRepository.deleteById(id);
     }
+
+    public boolean existsInvoice(int id){
+        return invoiceCrudRepository.existsById(id);
+    }
+
+    public long countAll() {
+        return invoiceCrudRepository.count();
+    }
 }

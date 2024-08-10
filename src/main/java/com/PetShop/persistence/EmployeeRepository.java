@@ -24,4 +24,12 @@ public class EmployeeRepository {
     public void delete(int id){
         employeeCrudRepository.deleteById(id);
     }
+
+    public boolean existsEmployee(int id){
+        return employeeCrudRepository.existsById(id);
+    }
+
+    public long countAll(){
+        return employeeCrudRepository.count();
+    }
 }

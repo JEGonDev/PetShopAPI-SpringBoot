@@ -1,7 +1,6 @@
 package com.PetShop.persistence;
 
 import com.PetShop.persistence.crud.OwnerCrudRepository;
-import com.PetShop.persistence.entity.MedicalHistory;
 import com.PetShop.persistence.entity.Owner;
 
 import java.util.List;
@@ -24,6 +23,14 @@ public class OwnerRepository {
 
     public void delete(int id) {
         ownerCrudRepository.deleteById(id);
+    }
+
+    public boolean existsOwner(int id) {
+        return ownerCrudRepository.existsById(id);
+    }
+
+    public long countAll(){
+        return ownerCrudRepository.count();
     }
 }
 
