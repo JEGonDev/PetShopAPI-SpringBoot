@@ -2,10 +2,12 @@ package com.PetShop.persistence;
 
 import com.PetShop.persistence.crud.MedicalHistoryCrudRepository;
 import com.PetShop.persistence.entity.MedicalHistory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class MedicalHistoryRepository {
     private MedicalHistoryCrudRepository medicalHistoryCrudRepository;
 

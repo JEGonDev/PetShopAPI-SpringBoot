@@ -2,10 +2,12 @@ package com.PetShop.persistence;
 
 import com.PetShop.persistence.crud.InvoiceCrudRepository;
 import com.PetShop.persistence.entity.Invoice;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class InvoiceRepository {
     private InvoiceCrudRepository invoiceCrudRepository;
 
