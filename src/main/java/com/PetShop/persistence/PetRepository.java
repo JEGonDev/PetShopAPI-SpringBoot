@@ -35,7 +35,7 @@ public class PetRepository {
         return petCrudRepository.count();
     }
 
-    /*public List<Pet> getBySpecies(String species) {
+    public List<Pet> getBySpecies(String species) {
         return petCrudRepository.findBySpeciesOrderByIdAsc(species);
-    }*/
+    }
 }
