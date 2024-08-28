@@ -1,4 +1,4 @@
-package com.PetShop.domain.mapper;
+package com.PetShop.persistence.mapper;
 
 public interface VeterinarianMapper {
 }
