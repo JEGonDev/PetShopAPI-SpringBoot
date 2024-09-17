@@ -27,16 +27,22 @@ public class MedicalAppointment {
     @JoinColumn(name = "id_veterinario")
     private Veterinarian veterinarian;
 
-    @OneToMany(mappedBy = "appointment")
+    @ManyToOne
+    @JoinColumn(name = "id_owner")  // Este debe ser el mismo nombre que en Owner
+    private Owner owner;
+
+    @OneToMany(mappedBy = "medicalAppointment")
     private List<Invoice> invoices;
 
-    @OneToMany(mappedBy = "appointment")
+
+    @OneToMany(mappedBy = "medicalAppointment")
     private List<MedicalHistory> medicalHistory;
 
-    @OneToMany(mappedBy = "appointment")
+    @OneToMany(mappedBy = "medicalAppointment")
     private List<AppointmentDetails> appointmentDetails;
 
     // Getters and setters
+
 
     public Integer getAppointmentID() {
         return appointmentID;
@@ -76,6 +82,14 @@ public class MedicalAppointment {
 
     public void setVeterinarian(Veterinarian veterinarian) {
         this.veterinarian = veterinarian;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     public List<Invoice> getInvoices() {

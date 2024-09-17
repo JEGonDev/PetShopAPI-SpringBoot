@@ -1,10 +1,13 @@
 package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "DetallesCitas")
 public class AppointmentDetails {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "id_cita")
@@ -12,10 +15,9 @@ public class AppointmentDetails {
 
     @ManyToOne
     @JoinColumn(name = "id_mascota")
-    private Pet pets;
+    private Pet pet;  // Asegúrate de que este nombre coincida con el mappedBy en Pet
 
     // Getters and Setters
-
     public MedicalAppointment getMedicalAppointment() {
         return medicalAppointment;
     }
@@ -24,11 +26,11 @@ public class AppointmentDetails {
         this.medicalAppointment = medicalAppointment;
     }
 
-    public Pet getPets() {
-        return pets;
+    public Pet getPet() {
+        return pet;
     }
 
-    public void setPets(Pet pets) {
-        this.pets = pets;
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

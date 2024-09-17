@@ -29,6 +29,10 @@ public class Invoice {
 
     //Relationships
     @ManyToOne
+    @JoinColumn(name = "id_producto") // Nombre de columna que referencia al producto
+    private Product product; // Asegúrate de que este nombre coincide con mappedBy en Product
+
+    @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Employee employee;
 
@@ -40,6 +44,7 @@ public class Invoice {
     private List<InvoiceDetail> invoiceDetail;
 
     //Getters and Setters
+
 
     public Integer getInvoiceID() {
         return invoiceID;
@@ -87,6 +92,14 @@ public class Invoice {
 
     public void setTotalReturn(Double totalReturn) {
         this.totalReturn = totalReturn;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public Employee getEmployee() {

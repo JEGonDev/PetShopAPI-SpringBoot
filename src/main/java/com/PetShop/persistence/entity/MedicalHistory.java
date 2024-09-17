@@ -29,6 +29,10 @@ public class MedicalHistory {
     @JoinColumn(name = "id_cita")
     private MedicalAppointment medicalAppointment;
 
+    @ManyToOne
+    @JoinColumn(name = "id_veterinario")  // Añade esta línea para la relación con Veterinarian
+    private Veterinarian veterinarian;
+
     //Getters and Setters
 
     public Integer getHistoryID() {
