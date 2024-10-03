@@ -3,44 +3,40 @@ package com.PetShop.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "historia_medica")
+@Table(name = "MedicalHistory")
 public class MedicalHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_historia_medica")
-    private Integer historyID;
+    @Column(name = "history_id")
+    private Integer id;
 
-    @Column(name = "alergias")
+    @Column(name = "allergies")
     private String allergies;
 
-    @Column(name = "tratamiento_previos")
+    @Column(name = "previous_treatment")
     private String previousTreatment;
 
-    @Column(name = "medicamentos_previos")
+    @Column(name = "previous_medications")
     private String previousMedications;
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name = "id_pet")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     @ManyToOne
-    @JoinColumn(name = "id_cita")
+    @JoinColumn(name = "appointment_id")
     private MedicalAppointment medicalAppointment;
-
-    @ManyToOne
-    @JoinColumn(name = "id_veterinario")  // Añade esta línea para la relación con Veterinarian
-    private Veterinarian veterinarian;
 
     //Getters and Setters
 
-    public Integer getHistoryID() {
-        return historyID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setHistoryID(Integer historyID) {
-        this.historyID = historyID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getAllergies() {

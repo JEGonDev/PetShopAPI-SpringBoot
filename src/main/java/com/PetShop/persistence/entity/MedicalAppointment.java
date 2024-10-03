@@ -5,75 +5,70 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "CitasMedicas")
+@Table(name = "MedicalAppointment")
 public class MedicalAppointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cita")
-    private Integer appointmentID;
+    @Column(name = "appointment_id")
+    private Integer id;
 
-    @Column(name = "fecha_cita")
-    private String appointmentDate;
+    @Column(name = "date")
+    private String date;
 
-    @Column(name = "hora_cita")
-    private String appointmentTime;
+    @Column(name = "time")
+    private String time;
 
-    @Column(name = "costo_cita")
-    private double appointmentCost;
+    @Column(name = "cost")
+    private Double cost;
 
     // Relationships
     @ManyToOne
-    @JoinColumn(name = "id_veterinario")
+    @JoinColumn(name = "veterinarian_id")
     private Veterinarian veterinarian;
 
-    @ManyToOne
-    @JoinColumn(name = "id_owner")  // Este debe ser el mismo nombre que en Owner
-    private Owner owner;
-
     @OneToMany(mappedBy = "medicalAppointment")
-    private List<Invoice> invoices;
-
+    private List<Invoice> invoice;
 
     @OneToMany(mappedBy = "medicalAppointment")
     private List<MedicalHistory> medicalHistory;
 
     @OneToMany(mappedBy = "medicalAppointment")
-    private List<AppointmentDetails> appointmentDetails;
+    private List<AppointmentDetails> appointmentDetail;
 
     // Getters and setters
 
 
-    public Integer getAppointmentID() {
-        return appointmentID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAppointmentID(Integer appointmentID) {
-        this.appointmentID = appointmentID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getAppointmentDate() {
-        return appointmentDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setAppointmentDate(String appointmentDate) {
-        this.appointmentDate = appointmentDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getAppointmentTime() {
-        return appointmentTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setAppointmentTime(String appointmentTime) {
-        this.appointmentTime = appointmentTime;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public double getAppointmentCost() {
-        return appointmentCost;
+    public double getCost() {
+        return cost;
     }
 
-    public void setAppointmentCost(double appointmentCost) {
-        this.appointmentCost = appointmentCost;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public Veterinarian getVeterinarian() {
@@ -84,20 +79,12 @@ public class MedicalAppointment {
         this.veterinarian = veterinarian;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public List<Invoice> getInvoice() {
+        return invoice;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public List<Invoice> getInvoices() {
-        return invoices;
-    }
-
-    public void setInvoices(List<Invoice> invoices) {
-        this.invoices = invoices;
+    public void setInvoice(List<Invoice> invoice) {
+        this.invoice = invoice;
     }
 
     public List<MedicalHistory> getMedicalHistory() {
@@ -108,11 +95,11 @@ public class MedicalAppointment {
         this.medicalHistory = medicalHistory;
     }
 
-    public List<AppointmentDetails> getAppointmentDetails() {
-        return appointmentDetails;
+    public List<AppointmentDetails> getAppointmentDetail() {
+        return appointmentDetail;
     }
 
-    public void setAppointmentDetails(List<AppointmentDetails> appointmentDetails) {
-        this.appointmentDetails = appointmentDetails;
+    public void setAppointmentDetail(List<AppointmentDetails> appointmentDetail) {
+        this.appointmentDetail = appointmentDetail;
     }
 }

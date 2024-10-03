@@ -5,58 +5,58 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "productos")
+@Table(name = "Product")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto")
-    private Integer productID;
+    @Column(name = "product_id")
+    private Integer id;
 
-    @Column(name = "nombre_producto")
-    private String productName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "categoria_producto")
-    private String productCategory;
+    @Column(name = "category")
+    private String category;
 
-    @Column(name = "marca_producto")
+    @Column(name = "brand")
     private String brand;
 
-    @Column(name = "precio_producto")
+    @Column(name = "price")
     private Double price;
 
     // relationships
     @ManyToOne
-    @JoinColumn(name = "id_proveedor")
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
     @OneToMany(mappedBy = "product")
-    private List<Invoice> invoices;
+    private List<InvoiceDetail> invoiceDetail;
 
     // getters and setters
 
-    public Integer getProductID() {
-        return productID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProductID(Integer productID) {
-        this.productID = productID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProductCategory() {
-        return productCategory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getBrand() {
@@ -83,11 +83,11 @@ public class Product {
         this.supplier = supplier;
     }
 
-    public List<Invoice> getInvoices() {
-        return invoices;
+    public List<InvoiceDetail> getInvoiceDetail() {
+        return invoiceDetail;
     }
 
-    public void setInvoices(List<Invoice> invoices) {
-        this.invoices = invoices;
+    public void setInvoiceDetail(List<InvoiceDetail> invoiceDetail) {
+        this.invoiceDetail = invoiceDetail;
     }
 }

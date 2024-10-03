@@ -5,77 +5,76 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Proveedores")
+@Table(name="Supplier")
 public class Supplier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_proveedor")
-    private Integer supplierId;
+    @Column(name="supplier_id")
+    private Integer id;
 
-    @Column(name="nombre_proveedor")
-    private String supplierName;
+    @Column(name="name")
+    private String name;
 
-    @Column(name="direccion_proveedor")
-    private String supplierAddress;
+    @Column(name="address")
+    private String address;
 
-    @Column(name="telefono_proveedor")
-    private String supplierPhone;
+    @Column(name="phone")
+    private String phoneNumber;
 
-    @Column(name="email_proveedor")
-    private String supplierEmail;
+    @Column(name="email")
+    private String email;
 
     //Relationships
     @OneToMany(mappedBy = "supplier")
-    private List<Product> products;
+    private List<Product> product;
 
     //Getters and setters
-
-    public Integer getSupplierId() {
-        return supplierId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSupplierId(Integer supplierId) {
-        this.supplierId = supplierId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSupplierName() {
-        return supplierName;
+    public String getName() {
+        return name;
     }
 
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSupplierAddress() {
-        return supplierAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setSupplierAddress(String supplierAddress) {
-        this.supplierAddress = supplierAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getSupplierPhone() {
-        return supplierPhone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setSupplierPhone(String supplierPhone) {
-        this.supplierPhone = supplierPhone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getSupplierEmail() {
-        return supplierEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSupplierEmail(String supplierEmail) {
-        this.supplierEmail = supplierEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Product> getProduct() {
+        return product;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
 }

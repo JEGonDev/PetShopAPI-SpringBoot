@@ -5,75 +5,77 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "empleados")
+@Table(name = "Employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_empleado")
-    private Integer employeeID;
+    @Column(name = "employee_id")
+    private Integer id;
 
-    @Column(name = "nombre_empleado")
-    private String employeeFirstName;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "apellido_empleado")
-    private String employeeLastName;
+    @Column(name = "last_name")
+    private String lastName;
 
-    @Column(name = "telefono_empleado")
-    private String employeePhoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name = "email_empleado")
-    private String employeeEmail;
+    @Column(name = "email")
+    private String email;
 
     //Relationships
     @OneToMany(mappedBy = "employee")
-    private List<Invoice> invoices;
+    private List<Invoice> invoice;
 
-    public Integer getEmployeeID() {
-        return employeeID;
+    //Getters and Setters
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setEmployeeID(Integer employeeID) {
-        this.employeeID = employeeID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getEmployeeFirstName() {
-        return employeeFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setEmployeeFirstName(String employeeFirstName) {
-        this.employeeFirstName = employeeFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getEmployeeLastName() {
-        return employeeLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmployeeLastName(String employeeLastName) {
-        this.employeeLastName = employeeLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getEmployeePhoneNumber() {
-        return employeePhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setEmployeePhoneNumber(String employeePhoneNumber) {
-        this.employeePhoneNumber = employeePhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getEmployeeEmail() {
-        return employeeEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmployeeEmail(String employeeEmail) {
-        this.employeeEmail = employeeEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<Invoice> getInvoices() {
-        return invoices;
+    public List<Invoice> getInvoice() {
+        return invoice;
     }
 
-    public void setInvoices(List<Invoice> invoices) {
-        this.invoices = invoices;
+    public void setInvoice(List<Invoice> invoice) {
+        this.invoice = invoice;
     }
 }

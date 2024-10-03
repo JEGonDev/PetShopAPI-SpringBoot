@@ -6,99 +6,88 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "propietorios")
+@Table(name = "Owner")
 public class Owner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_propietario")
-    private Integer ownerID;
+    @Column (name = "owner_id")
+    private Integer id;
 
-    @Column (name = "nombre_propietario")
-    private String ownerFirstName;
+    @Column (name = "first_name")
+    private String firstName;
 
-    @Column (name = "apellido_propietario")
-    private String ownerLastName;
+    @Column (name = "last_name")
+    private String lastName;
 
-    @Column (name = "email_propietario")
-    private String ownerEmail;
+    @Column (name = "email")
+    private String email;
 
-    @Column (name = "telefono")
-    private String ownerPhoneNumber;
+    @Column (name = "phone_number")
+    private String phoneNumber;
 
-    @Column (name = "direccion")
-    private String ownerAddress;
+    @Column (name = "address")
+    private String address;
 
     //relationships
     @OneToMany(mappedBy = "owner")
-    private List<Pet> pets;
-
-    @OneToMany(mappedBy = "owner")
-    private List<MedicalAppointment> medicalAppointments;
+    private List<Pet> pet;
 
     //getters and setters
 
-    public Integer getOwnerID() {
-        return ownerID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOwnerID(Integer ownerID) {
-        this.ownerID = ownerID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getOwnerFistName() {
-        return ownerFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setOwnerFistName(String ownerFistName) {
-        this.ownerFirstName = ownerFistName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getOwnerLastName() {
-        return ownerLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setOwnerLastName(String ownerLastName) {
-        this.ownerLastName = ownerLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getOwnerEmail() {
-        return ownerEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setOwnerEmail(String ownerEmail) {
-        this.ownerEmail = ownerEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getOwnerPhoneNumber() {
-        return ownerPhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setOwnerPhoneNumber(String ownerPhoneNumber) {
-        this.ownerPhoneNumber = ownerPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getOwnerAddress() {
-        return ownerAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setOwnerAddress(String ownerAddress) {
-        this.ownerAddress = ownerAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public List<Pet> getPets() {
-        return pets;
+    public List<Pet> getPet() {
+        return pet;
     }
 
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }
-
-    public List<MedicalAppointment> getMedicalAppointments() {
-        return medicalAppointments;
-    }
-
-    public void setMedicalAppointments(List<MedicalAppointment> medicalAppointments) {
-        this.medicalAppointments = medicalAppointments;
+    public void setPet(List<Pet> pet) {
+        this.pet = pet;
     }
 }

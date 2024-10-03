@@ -2,22 +2,32 @@ package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
 @Entity
-@Table(name = "DetallesCitas")
+@Table(name = "AppointmentDetails")
 public class AppointmentDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "appointment_details_id")
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_cita")
+    @JoinColumn(name = "appointment_id")
     private MedicalAppointment medicalAppointment;
 
     @ManyToOne
-    @JoinColumn(name = "id_mascota")
+    @JoinColumn(name = "pet_id")
     private Pet pet;  // Asegúrate de que este nombre coincida con el mappedBy en Pet
 
     // Getters and Setters
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public MedicalAppointment getMedicalAppointment() {
         return medicalAppointment;
     }

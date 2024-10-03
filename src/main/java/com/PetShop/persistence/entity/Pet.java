@@ -4,53 +4,53 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "mascotas")  // Nombre de la tabla en la base de datos
+@Table(name = "Pet")  // Nombre de la tabla en la base de datos
 public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pet")
-    private Integer petID;
+    @Column(name = "pet_id")
+    private Integer id;
 
-    @Column(name = "nombres")
-    private String namePet;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "especies")
+    @Column(name = "species")
     private String species;
 
-    @Column(name = "edad")
-    private int age;
+    @Column(name = "age")
+    private Integer age;
 
-    @Column(name = "genero")
+    @Column(name = "gender")
     private String gender;
 
     // relationships
     @ManyToOne
-    @JoinColumn(name = "id_propietario")
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
     @OneToMany (mappedBy = "pet")
     private List<MedicalHistory> medicalHistory;
 
     @OneToMany (mappedBy = "pet")
-    private List<AppointmentDetails> appointmentDetails;
+    private List<AppointmentDetails> appointmentDetail;
 
     // getters and setters
 
-    public Integer getPetID() {
-        return petID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPetID(Integer petID) {
-        this.petID = petID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNamePet() {
-        return namePet;
+    public String getName() {
+        return name;
     }
 
-    public void setNamePet(String namePet) {
-        this.namePet = namePet;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSpecies() {
@@ -93,11 +93,11 @@ public class Pet {
         this.medicalHistory = medicalHistory;
     }
 
-    public List<AppointmentDetails> getAppointmentDetails() {
-        return appointmentDetails;
+    public List<AppointmentDetails> getAppointmentDetail() {
+        return appointmentDetail;
     }
 
-    public void setAppointmentDetails(List<AppointmentDetails> appointmentDetails) {
-        this.appointmentDetails = appointmentDetails;
+    public void setAppointmentDetail(List<AppointmentDetails> appointmentDetail) {
+        this.appointmentDetail = appointmentDetail;
     }
 }

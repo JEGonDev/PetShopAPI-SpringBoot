@@ -3,37 +3,37 @@ package com.PetShop.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Detalles del recibo")
+@Table(name = "InvoiceDetail")
 public class InvoiceDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_detalle_factura")
-    private Integer invoiceDetailID;
+    @Column(name = "invoice_detail_id")
+    private Integer id;
 
-    @Column(name = "cantidad")
-    private int quantity;
+    @Column(name = "quantity")
+    private Integer quantity;
 
-    @Column(name = "precio-unitario")
-    private double unitPrice;
+    @Column(name = "unit_price")
+    private Double unitPrice;
 
     // Relationships
     @ManyToOne
-    @JoinColumn(name = "id_factura")
+    @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     // Getters and Setters
 
-    public Integer getInvoiceDetailID() {
-        return invoiceDetailID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setInvoiceDetailID(Integer invoiceDetailID) {
-        this.invoiceDetailID = invoiceDetailID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getQuantity() {

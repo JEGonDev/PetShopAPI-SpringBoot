@@ -4,70 +4,65 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Invoices")
+@Table(name = "Invoice")
 public class Invoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_factura")
-    private Integer invoiceID;
+    @Column(name = "invoice_id")
+    private Integer id;
 
-    @Column(name = "fecha_factura")
-    private String invoiceDate;
+    @Column(name = "date")
+    private String date;
 
-    @Column(name = "hora_factura")
-    private String invoiceTime;
+    @Column(name = "time")
+    private String time;
 
-    @Column(name = "total_factura")
+    @Column(name = "total_amount")
     private Double totalAmount;
 
-    @Column(name = "total_recibido")
+    @Column(name = "total_received")
     private Double totalReceived;
 
-    @Column(name = "total_devuelto")
+    @Column(name = "total_return")
     private Double totalReturn;
 
     //Relationships
     @ManyToOne
-    @JoinColumn(name = "id_producto") // Nombre de columna que referencia al producto
-    private Product product; // Asegúrate de que este nombre coincide con mappedBy en Product
-
-    @ManyToOne
-    @JoinColumn(name = "id_empleado")
+    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "id_cita")
+    @JoinColumn(name = "appointment_id")
     private MedicalAppointment medicalAppointment;
 
-    @OneToMany (mappedBy = "invoice")
+    @OneToMany (mappedBy = "invoice_detail_id")
     private List<InvoiceDetail> invoiceDetail;
 
     //Getters and Setters
 
-
-    public Integer getInvoiceID() {
-        return invoiceID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setInvoiceID(Integer invoiceID) {
-        this.invoiceID = invoiceID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getInvoiceDate() {
-        return invoiceDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setInvoiceDate(String invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getInvoiceTime() {
-        return invoiceTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setInvoiceTime(String invoiceTime) {
-        this.invoiceTime = invoiceTime;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public Double getTotalAmount() {
@@ -92,14 +87,6 @@ public class Invoice {
 
     public void setTotalReturn(Double totalReturn) {
         this.totalReturn = totalReturn;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Employee getEmployee() {
