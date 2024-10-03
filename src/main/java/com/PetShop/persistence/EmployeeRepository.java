@@ -23,11 +23,11 @@ public class EmployeeRepository {
         return employeeCrudRepository.save(employee);
     }
 
-    public void delete(int id){
+    public void deleteById(int id){
         employeeCrudRepository.deleteById(id);
     }
 
-    public boolean existsEmployee(int id){
+    public boolean existsEmployeeById(int id){
         return employeeCrudRepository.existsById(id);
     }
 

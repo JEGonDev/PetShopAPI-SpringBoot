@@ -1,16 +1,82 @@
 package com.PetShop.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
-// DTO para la entidad Pet
-@Data
-@NoArgsConstructor
 public class PetDomain {
-    private Integer petID;
-    private String namePet;
+    private Integer petId;
+    private String name;
     private String species;
-    private int age;
+    private Integer age;
     private String gender;
-    private OwnerDomain ownerID;
+
+    // Relationships
+    private OwnerDomain owner;
+    private List<MedicalHistoryDomain> medicalHistory;
+    private List<AppointmentDetailsDomain> appointmentDetail;
+
+    // Getters and Setters
+
+    public Integer getPetId() {
+        return petId;
+    }
+
+    public void setPetId(Integer petId) {
+        this.petId = petId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public OwnerDomain getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerDomain owner) {
+        this.owner = owner;
+    }
+
+    public List<MedicalHistoryDomain> getMedicalHistory() {
+        return medicalHistory;
+    }
+
+    public void setMedicalHistory(List<MedicalHistoryDomain> medicalHistory) {
+        this.medicalHistory = medicalHistory;
+    }
+
+    public List<AppointmentDetailsDomain> getAppointmentDetail() {
+        return appointmentDetail;
+    }
+
+    public void setAppointmentDetail(List<AppointmentDetailsDomain> appointmentDetail) {
+        this.appointmentDetail = appointmentDetail;
+    }
 }
