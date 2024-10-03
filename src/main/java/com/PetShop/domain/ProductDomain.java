@@ -11,7 +11,6 @@ public class ProductDomain {
 
     // Relationships
     private SupplierDomain supplier;
-    private List<InvoiceDetailDomain> invoiceDetail;
 
     // Getters and Setters
 
@@ -61,13 +60,5 @@ public class ProductDomain {
 
     public void setSupplier(SupplierDomain supplier) {
         this.supplier = supplier;
-    }
-
-    public List<InvoiceDetailDomain> getInvoiceDetail() {
-        return invoiceDetail;
-    }
-
-    public void setInvoiceDetail(List<InvoiceDetailDomain> invoiceDetail) {
-        this.invoiceDetail = invoiceDetail;
     }
 }

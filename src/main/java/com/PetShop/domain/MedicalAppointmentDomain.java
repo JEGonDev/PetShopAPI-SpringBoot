@@ -10,9 +10,6 @@ public class MedicalAppointmentDomain {
 
     // Relationships
     private VeterinarianDomain veterinarian;
-    private List<InvoiceDomain> invoice;
-    private List<MedicalHistoryDomain> medicalHistory;
-    private List<AppointmentDetailsDomain> appointmentDetail;
 
     // Getters and Setters
 
@@ -54,29 +51,5 @@ public class MedicalAppointmentDomain {
 
     public void setVeterinarian(VeterinarianDomain veterinarian) {
         this.veterinarian = veterinarian;
-    }
-
-    public List<InvoiceDomain> getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(List<InvoiceDomain> invoice) {
-        this.invoice = invoice;
-    }
-
-    public List<MedicalHistoryDomain> getMedicalHistory() {
-        return medicalHistory;
-    }
-
-    public void setMedicalHistory(List<MedicalHistoryDomain> medicalHistory) {
-        this.medicalHistory = medicalHistory;
-    }
-
-    public List<AppointmentDetailsDomain> getAppointmentDetail() {
-        return appointmentDetail;
-    }
-
-    public void setAppointmentDetail(List<AppointmentDetailsDomain> appointmentDetail) {
-        this.appointmentDetail = appointmentDetail;
     }
 }

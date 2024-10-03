@@ -9,9 +9,6 @@ public class SupplierDomain {
     private String phoneNumber;
     private String email;
 
-    // Relationships
-    private List<ProductDomain> product;
-
     // Getters and Setters
 
     public Integer getSupplierId() {
@@ -52,13 +49,5 @@ public class SupplierDomain {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<ProductDomain> getProduct() {
-        return product;
-    }
-
-    public void setProduct(List<ProductDomain> product) {
-        this.product = product;
     }
 }

@@ -10,10 +10,6 @@ public class VeterinarianDomain {
     private String phoneNumber;
     private String email;
     private Integer age;
-
-    // Relationships
-    private List<MedicalAppointmentDomain> medicalAppointment;
-
     // Getters and Setters
 
     public Integer getVeterinarianId() {
@@ -70,13 +66,5 @@ public class VeterinarianDomain {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public List<MedicalAppointmentDomain> getMedicalAppointment() {
-        return medicalAppointment;
-    }
-
-    public void setMedicalAppointment(List<MedicalAppointmentDomain> medicalAppointment) {
-        this.medicalAppointment = medicalAppointment;
     }
 }

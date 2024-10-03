@@ -13,7 +13,6 @@ public class InvoiceDomain {
     // Relationships
     private EmployeeDomain employee;
     private MedicalAppointmentDomain medicalAppointment;
-    private List<InvoiceDetailDomain> invoiceDetail;
 
     // Getters and Setters
 
@@ -79,13 +78,5 @@ public class InvoiceDomain {
 
     public void setMedicalAppointment(MedicalAppointmentDomain medicalAppointment) {
         this.medicalAppointment = medicalAppointment;
-    }
-
-    public List<InvoiceDetailDomain> getInvoiceDetail() {
-        return invoiceDetail;
-    }
-
-    public void setInvoiceDetail(List<InvoiceDetailDomain> invoiceDetail) {
-        this.invoiceDetail = invoiceDetail;
     }
 }

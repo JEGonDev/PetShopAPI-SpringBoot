@@ -11,8 +11,6 @@ public class PetDomain {
 
     // Relationships
     private OwnerDomain owner;
-    private List<MedicalHistoryDomain> medicalHistory;
-    private List<AppointmentDetailsDomain> appointmentDetail;
 
     // Getters and Setters
 
@@ -62,21 +60,5 @@ public class PetDomain {
 
     public void setOwner(OwnerDomain owner) {
         this.owner = owner;
-    }
-
-    public List<MedicalHistoryDomain> getMedicalHistory() {
-        return medicalHistory;
-    }
-
-    public void setMedicalHistory(List<MedicalHistoryDomain> medicalHistory) {
-        this.medicalHistory = medicalHistory;
-    }
-
-    public List<AppointmentDetailsDomain> getAppointmentDetail() {
-        return appointmentDetail;
-    }
-
-    public void setAppointmentDetail(List<AppointmentDetailsDomain> appointmentDetail) {
-        this.appointmentDetail = appointmentDetail;
     }
 }

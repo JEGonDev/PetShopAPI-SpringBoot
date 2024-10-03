@@ -9,9 +9,6 @@ public class EmployeeDomain {
     private String phoneNumber;
     private String email;
 
-    // Relationships
-    private List<InvoiceDomain> invoice;
-
     // Getters and Setters
 
     public Integer getEmployeeId() {
@@ -52,13 +49,5 @@ public class EmployeeDomain {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<InvoiceDomain> getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(List<InvoiceDomain> invoice) {
-        this.invoice = invoice;
     }
 }

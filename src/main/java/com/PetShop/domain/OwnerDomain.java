@@ -10,9 +10,6 @@ public class OwnerDomain {
     private String phoneNumber;
     private String address;
 
-    // Relationships
-    private List<PetDomain> pet;
-
     // Getters and Setters
 
     public Integer getOwnerId() {
@@ -61,13 +58,5 @@ public class OwnerDomain {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public List<PetDomain> getPet() {
-        return pet;
-    }
-
-    public void setPet(List<PetDomain> pet) {
-        this.pet = pet;
     }
 }
