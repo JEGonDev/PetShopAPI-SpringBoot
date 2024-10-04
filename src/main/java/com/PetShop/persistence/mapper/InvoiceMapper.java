@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {EmployeeMapper.class, MedicalAppointmentMapper.class})
 public interface InvoiceMapper {
     @Mappings({
-            @Mapping(source = "invoiceId" , target = "id"),
+            @Mapping(source = "id" , target = "invoiceId"),
             @Mapping(source = "date" , target = "date"),
             @Mapping(source = "time" , target = "time"),
             @Mapping(source = "totalAmount" , target = "totalAmount"),

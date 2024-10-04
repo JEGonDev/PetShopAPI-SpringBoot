@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface OwnerMapper {
     @Mappings({
-            @Mapping(source = "ownerId", target = "id"),
+            @Mapping(source = "id", target = "ownerId"),
             @Mapping(source = "firstName", target = "firstName"),
             @Mapping(source = "lastName", target = "lastName"),
             @Mapping(source = "email", target = "email"),

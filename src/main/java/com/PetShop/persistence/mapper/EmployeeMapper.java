@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
     @Mappings({
-            @Mapping(source = "employeeId", target = "id"),
+            @Mapping(source = "id", target = "employeeId"),
             @Mapping(source = "firstName", target = "firstName"),
             @Mapping(source = "lastName", target = "lastName"),
             @Mapping(source = "phoneNumber", target = "phoneNumber"),

@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {PetMapper.class, MedicalAppointmentMapper.class})
 public interface MedicalHistoryMapper {
     @Mappings({
-            @Mapping(source = "medicalHistoryId", target = "id"),
+            @Mapping(source = "id", target = "medicalHistoryId"),
             @Mapping(source = "allergies", target = "allergies"),
             @Mapping(source = "previousTreatment", target = "previousTreatment"),
             @Mapping(source = "previousMedications", target = "previousMedications"),
