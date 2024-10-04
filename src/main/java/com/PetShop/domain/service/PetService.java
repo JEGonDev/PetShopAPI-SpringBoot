@@ -40,4 +40,8 @@ public class PetService {
     public long countAll() {
         return petDomainRepository.countAll();
     }
+
+    public List<PetDTO> getBySpecies(String species) {
+        return petDomainRepository.getBySpecies(species);
+    }
 }

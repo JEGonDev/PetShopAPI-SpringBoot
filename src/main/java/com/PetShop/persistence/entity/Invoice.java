@@ -36,7 +36,7 @@ public class Invoice {
     @JoinColumn(name = "appointment_id")
     private MedicalAppointment medicalAppointment;
 
-    @OneToMany (mappedBy = "invoice_detail_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InvoiceDetail> invoiceDetail;
 
     //Getters and Setters
