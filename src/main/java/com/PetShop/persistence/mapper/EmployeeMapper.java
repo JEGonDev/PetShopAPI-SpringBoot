@@ -19,7 +19,7 @@ public interface EmployeeMapper {
             @Mapping(source = "email", target = "email")
     })
     EmployeeDTO toEmployeeDTO(Employee employee);
-    List<EmployeeDTO> toEmployeeDTOs(List<Employee> employees);
+    List<EmployeeDTO> toEmployeeDTO(List<Employee> employees);
 
     @InheritInverseConfiguration
     @Mapping(target = "invoice", ignore = true)

@@ -1,41 +1,59 @@
 package com.PetShop.persistence;
 
+import com.PetShop.domain.dto.PetDTO;
+import com.PetShop.domain.repository.PetDomainRepository;
 import com.PetShop.persistence.crud.PetCrudRepository;
 import com.PetShop.persistence.entity.Pet;
+import com.PetShop.persistence.mapper.PetMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class PetRepository {
+public class PetRepository implements PetDomainRepository {
+    @Autowired
+    private PetMapper petMapper;
+
+    @Autowired
     private PetCrudRepository petCrudRepository;
 
-    public List<Pet> getAll() {
-        return (List<Pet>) petCrudRepository.findAll();
+    @Override
+    public List<PetDTO> getAll() {
+        List<Pet> pets = (List<Pet>) petCrudRepository.findAll();
+        return petMapper.toPetDTO(pets);
     }
 
-    public Optional<Pet> getPetByID(int id){
-        return petCrudRepository.findById(id);
+    @Override
+    public Optional<PetDTO> getPetById(int id) {
+        return petCrudRepository.findById(id).map(petMapper::toPetDTO);
     }
 
-    public Pet save(Pet pet){
-        return petCrudRepository.save(pet);
+    @Override
+    public PetDTO save(PetDTO petDTO) {
+        Pet pet = petMapper.toPet(petDTO);
+        return petMapper.toPetDTO(petCrudRepository.save(pet));
     }
 
+    @Override
     public void delete(int id) {
         petCrudRepository.deleteById(id);
     }
 
+    @Override
     public boolean existsPet(int id) {
         return petCrudRepository.existsById(id);
     }
 
-    public long countAll(){
+    @Override
+    public long countAll() {
         return petCrudRepository.count();
     }
 
-    public List<Pet> getBySpecies(String species) {
-        return petCrudRepository.findBySpeciesOrderByIdAsc(species);
+    @Override
+    public List<PetDTO> getBySpecies(String species) {
+        List<Pet> pets = petCrudRepository.findBySpeciesOrderByIdAsc(species);
+        return petMapper.toPetDTO(pets);
     }
 }

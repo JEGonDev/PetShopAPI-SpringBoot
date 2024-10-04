@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface VeterinarianMapper {
     @Mappings({
@@ -19,6 +21,7 @@ public interface VeterinarianMapper {
             @Mapping(source = "age", target = "age")
     })
     VeterinarianDTO toVeterinarianDTO (Veterinarian veterinarian);
+    List<VeterinarianDTO> toVeterinarianDTO (List<Veterinarian> veterinarians);
 
     @InheritInverseConfiguration
     @Mapping(target = "medicalAppointment", ignore = true)

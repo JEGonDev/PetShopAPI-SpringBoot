@@ -1,37 +1,52 @@
 package com.PetShop.persistence;
 
+import com.PetShop.domain.dto.InvoiceDetailDTO;
+import com.PetShop.domain.repository.InvoiceDetailDomainRepository;
 import com.PetShop.persistence.crud.InvoiceDetailCrudRepository;
 import com.PetShop.persistence.entity.InvoiceDetail;
+import com.PetShop.persistence.mapper.InvoiceDetailMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class InvoiceDetailRepository {
+public class InvoiceDetailRepository implements InvoiceDetailDomainRepository {
+    @Autowired
+    private InvoiceDetailMapper invoiceDetailMapper;
+    @Autowired
     private InvoiceDetailCrudRepository invoiceDetailCrudRepository;
 
-    public List<InvoiceDetail> getAll() {
-        return (List<InvoiceDetail>) invoiceDetailCrudRepository.findAll();
+    @Override
+    public List<InvoiceDetailDTO> getAll() {
+        List<InvoiceDetail> invoiceDetails = (List<InvoiceDetail>) invoiceDetailCrudRepository.findAll();
+        return invoiceDetailMapper.toInvoiceDetailDTO(invoiceDetails);
     }
 
-    public Optional<InvoiceDetail> getInvoiceDetailByID(int id){
-        return invoiceDetailCrudRepository.findById(id);
+    @Override
+    public Optional<InvoiceDetailDTO> getInvoiceDetailById(int id) {
+        return invoiceDetailCrudRepository.findById(id).map(invoiceDetailMapper::toInvoiceDetailDTO);
     }
 
-    public InvoiceDetail save(InvoiceDetail invoiceDetail){
-        return invoiceDetailCrudRepository.save(invoiceDetail);
+    @Override
+    public InvoiceDetailDTO save(InvoiceDetailDTO invoiceDetailDTO) {
+        InvoiceDetail invoiceDetail = invoiceDetailMapper.toInvoiceDetail(invoiceDetailDTO);
+        return invoiceDetailMapper.toInvoiceDetailDTO(invoiceDetailCrudRepository.save(invoiceDetail));
     }
 
-    public void delete(int id){
+    @Override
+    public void delete(int id) {
         invoiceDetailCrudRepository.deleteById(id);
     }
 
-    public boolean existsInvoiceDetail(int id){
+    @Override
+    public boolean existsInvoiceDetail(int id) {
         return invoiceDetailCrudRepository.existsById(id);
     }
 
-    public long countAll(){
+    @Override
+    public long countAll() {
         return invoiceDetailCrudRepository.count();
     }
 }
