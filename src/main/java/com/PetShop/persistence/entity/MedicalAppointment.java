@@ -33,7 +33,7 @@ public class MedicalAppointment {
     @OneToMany(mappedBy = "medicalAppointment")
     private List<MedicalHistory> medicalHistory;
 
-    @OneToMany(mappedBy = "medicalAppointment")
+    @OneToMany(mappedBy = "medicalAppointment", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AppointmentDetails> appointmentDetail;
 
     // Getters and setters
