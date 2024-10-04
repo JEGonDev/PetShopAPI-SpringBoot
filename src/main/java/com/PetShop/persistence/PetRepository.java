@@ -52,7 +52,7 @@ public class PetRepository implements PetDomainRepository {
     }
 
     @Override
-    public List<PetDTO> getBySpecies(String species) {
+    public List<PetDTO> findBySpeciesOrderByIdAsc(String species) {
         List<Pet> pets = petCrudRepository.findBySpeciesOrderByIdAsc(species);
         return petMapper.toPetDTO(pets);
     }

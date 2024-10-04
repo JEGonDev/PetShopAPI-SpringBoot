@@ -42,6 +42,6 @@ public class PetService {
     }
 
     public List<PetDTO> getBySpecies(String species) {
-        return petDomainRepository.getBySpecies(species);
+        return petDomainRepository.findBySpeciesOrderByIdAsc(species);
     }
 }
