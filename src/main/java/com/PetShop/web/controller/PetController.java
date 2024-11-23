@@ -44,9 +44,4 @@ public class PetController {
     public long countPets() {
         return petService.countAll();
     }
-
-    @GetMapping("/getBySpecies/{species}")
-    public List<PetDTO> getBySpecies(@PathVariable("species") String species) {
-        return petService.getBySpecies(species);
-    }
 }

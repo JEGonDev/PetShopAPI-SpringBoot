@@ -50,10 +50,4 @@ public class PetRepository implements PetDomainRepository {
     public long countAll() {
         return petCrudRepository.count();
     }
-
-    @Override
-    public List<PetDTO> findBySpeciesOrderByIdAsc(String species) {
-        List<Pet> pets = petCrudRepository.findBySpeciesOrderByIdAsc(species);
-        return petMapper.toPetDTO(pets);
-    }
 }

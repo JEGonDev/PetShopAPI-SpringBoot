@@ -6,8 +6,4 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface PetCrudRepository extends CrudRepository<Pet,Integer> {
-
-    @Query(value = "SELECT * FROM mascotas WHERE especies = :especies ORDER BY id_pet ASC", nativeQuery = true)
-    List<Pet> findBySpeciesOrderByIdAsc(@Param("especies") String especies);
-
 }

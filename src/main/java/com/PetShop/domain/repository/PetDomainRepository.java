@@ -12,5 +12,4 @@ public interface PetDomainRepository {
     void delete(int id);
     boolean existsPet(int id);
     long countAll();
-    List<PetDTO> findBySpeciesOrderByIdAsc(String species);
 }
