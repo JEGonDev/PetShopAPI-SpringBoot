@@ -9,7 +9,7 @@ public class Veterinarian {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="veterianarian_id")
+    @Column(name="veterinarian_id")
     private Integer id;
 
     @Column(name="first_name")

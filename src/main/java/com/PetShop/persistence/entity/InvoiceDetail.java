@@ -3,7 +3,7 @@ package com.PetShop.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "InvoiceDetail")
+@Table(name = "invoicedetail")
 public class InvoiceDetail {
 
     @Id

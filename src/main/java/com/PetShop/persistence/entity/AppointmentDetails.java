@@ -2,12 +2,12 @@ package com.PetShop.persistence.entity;
 
 import jakarta.persistence.*;
 @Entity
-@Table(name = "AppointmentDetails")
+@Table(name = "appointmentdetails")
 public class AppointmentDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "appointment_details_id")
+    @Column(name = "appointment_detail_id")
     private Integer id;
 
     @ManyToOne
